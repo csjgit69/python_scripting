@@ -1,0 +1,127 @@
+import sys
+import datetime
+import math
+import re
+import calendar
+import collections
+
+"""
+exercises from the website:
+https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR
+"""
+def get_input (input_str):
+    usr_str = input(input_str)
+    # print (usr_str)
+    usr_str = re.sub(r'[,]+', " ", usr_str)
+    usr_str = usr_str.split(" ")
+    # print (usr_str)
+    return usr_str
+
+def exer_1():
+    print (sys.version)
+    print (sys.version_info)
+    now = datetime.datetime.now()
+    print (now)
+    print (now.strftime("%Y-%m-%d %H:%M:%S"))
+    return
+def exer_4():
+    radius = float(input("Input a radius: "))
+    area_c = (radius**2) * math.pi
+    print ("Area of a circle with radius ",radius," is ",area_c)
+    return
+def exer_5():
+    in_str = input("Input first and last name: ")
+    l = [x for x in in_str.split(" ")]
+    print(l[1], l[0])
+    return
+def exer_6(in_str):
+    """
+    make a list and tupple from input
+    """
+    l = list(in_str)
+    t = tuple(in_str)
+    print("List: ",l)
+    print("Tupple: ",t)
+    return
+def exer_7(in_str):
+    """
+    take file name from user, print extension (print after'.')
+    """
+    n_l = in_str[0].split(".")
+    print("File extension: ",n_l[-1]) # last item in list
+    return
+def exer_9():
+    """
+    Sample Output: The examination will start from : 11 / 12 / 2014
+    :return: 
+    """
+    exam_st_date = (11, 12, 2014)
+    print("")
+    print("Example of vars in print statment and pulling them out of a tuple in one call: ")
+    print("The examination will start from : %i / %i / %i" %exam_st_date)
+    print("")
+    print("Example of getting the docstring from a function/method: ")
+    print("Doc String from abs() :\n",abs.__doc__)
+    print("")
+    print("Example of using the calendar module:")
+    print(calendar.month(theyear=2020,themonth=9))
+
+    # Write a Python program to calculate number of days between two dates.
+    day_1, day_2 = datetime.date(2014, 7, 2), datetime.date(2014, 7, 11)
+    delta = day_2 - day_1
+    print ("Expected output : 9 days", delta.days)
+    return
+def exer_15():
+    """
+    more random stuff
+    :return:
+    """
+    radius = 6.0
+    area_c = (4/3)*math.pow(radius,3)*math.pi
+    print("Area of sphere radius {} is {}".format(radius, area_c))
+    print("")
+    val = 17
+    return
+def exer_18(in_str):
+    """
+    take in a sentence, add "is" to the start of it. If it starts with "is" leave it unchanged
+    """
+    if in_str[0] != "is":
+        in_str.insert(0,"is")
+    print(" ".join(in_str))
+    #another way
+    in_str = input("Input a sentence: ")
+    if in_str[:2] != "is":
+        in_str = "is " + in_str
+    print(in_str)
+
+    print("looking for a letter in a string the cool way:")
+    all_vals = "aeiou"
+    for c in in_str:
+        if c in all_vals:
+            print(c)
+    return
+def exer_26():
+    """
+    """
+    in_str = input("Input a string of characters or integers: ")
+    histo = collections.Counter(in_str)
+    print("histogram is:")
+    print(histo)
+    return
+
+
+
+def main():
+    # exer_1()
+    # exer_4()
+    # exer_5()
+    # exer_6(get_input("Input list of numbers: "))
+    # exer_7(get_input("Input a file name with extension: "))
+    # exer_9()
+    # exer_15()
+    # exer_18(get_input("Enter a sentence: "))
+    exer_26()
+
+if __name__ == '__main__':
+    main()
