@@ -331,6 +331,13 @@ def smaller_root(coeff_a, coeff_b, coeff_c):
     discrim = (coeff_b**2) - (4*coeff_a*coeff_c)
     if discrim<0 or coeff_a==0:
         return "Error: No real solutions"
+    # elif discrim==0:
+    #     return (-coeff_b+discrim)/(2*coeff_a)
+    elif (-coeff_b+discrim) < (-coeff_b+discrim):
+        return (-coeff_b + (discrim**0.5)) / (2 * coeff_a)
+    else:
+        return (-coeff_b - (discrim**0.5)) / (2 * coeff_a)
+
 
     return 0
 
@@ -366,6 +373,48 @@ def exer_10():
     return 0
 ###################################################
 
+def f (num):
+    if num%2==0:
+        return num//2
+    else:
+        return (num*3)+1
+def test():
+    p = True
+    q = True
+    print(not (p or not q))
+    p = True
+    q = False
+    print(not (p or not q))
+    p = False
+    q = True
+    print(not (p or not q))
+    p = False
+    q = False
+    print(not (p or not q))
+
+    print("*** 3:")
+    bool1 = True
+    bool2 = False
+    print(not (bool1 == bool2))
+    print(bool2 == True)
+    print(bool1 != False)
+    print(not False)
+
+    print("*** 4:")
+    num1 = 4
+    num2 = 4
+    print(num1 >= num2)
+    print(num2 < num1)
+    print((num1>num2)or(num1==num2))
+    print(not(num1<=num2))
+    print((num1>num2)and(num1!=num2))
+
+    print("*** 7:")
+    print(f(f(f(f(f(f(f(674))))))))
+    print(f(f(f(f(f(f(f(f(f(f(f(f(f(f(1071)))))))))))))))
+    return 0
+
+
 def main():
     # exer_1()
     # exer_2()
@@ -376,7 +425,8 @@ def main():
     # exer_7()
     # exer_8()
     # exer_9()
-    exer_10()
+    # exer_10()
+    test()
 
 
 if __name__ == '__main__':
