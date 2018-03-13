@@ -15,47 +15,37 @@ def p_1():
 
 def p_2():
     """
-    Create a string formed by selecting the first and last letters of example_string
-    Output should be
-    It's just a flesh wound
-    Id
+    Template - Create a list formed by the first and last items of example_list
+    Output
+    [2, 13]
     """
-    example_string = "It's just a flesh wound"
-    print(example_string)
-
-    solution_string = example_string[0] + example_string[-1]
-    print(solution_string)
+    example_list = [2, 3, 5, 7, 11, 13]
+    # firstlast_list = list((example_list[0],example_list[-1]))
+    firstlast_list = [example_list[0],example_list[-1]]
+    print(firstlast_list)
     return 0
 
 def p_3():
     """
-    # Create a string formed by selecting all but the first and last letters of example_string
-    # Output should be
-    #It's just a flesh wound
-    #t's just a flesh woun
-    :return:
+    Template - Create a list formed by excluding the first and last items of example_list
+    Output
+    [3, 5, 7, 11]
     """
-    example_string = "It's just a flesh wound"
-    print(example_string)
+    example_list = [2, 3, 5, 7, 11, 13]
+    middle_list =example_list[1:-1]
+    print(middle_list)
 
-    solution_string = example_string[1:-1]
-    print(solution_string)
-    return
+    return 0
 
 def p_4():
     """
-    # Create a string formed by selecting the first three characters of example_string
-    # plus the last three characters of example_string
-    # Output should be
-    #It's just a flesh wound
-    #It'und
-    :return:
+    Template - Create a list formed by 8 copies of True and 8 copies of False
+    Output
+    [True, True, True, True, True, True, True, True, False, False, False, False, False, False, False, False]
     """
-    example_string = "It's just a flesh wound"
-    print(example_string)
+    truefalse_list =[True]*8+[False]*8
+    print(truefalse_list)
 
-    solution_string = example_string[:3]+example_string[-3:]
-    print(solution_string)
     return 0
 
 def p_5(call,repeats):
@@ -221,10 +211,10 @@ def main():
     main program to keep test and functions clean
     :return:
     """
-    p_1()
+    # p_1()
     # p_2()
     # p_3()
-    # p_4()
+    p_4()
     # p_5("Hello", 5)
     # p_5("Goodbye", 3)
     # p_6()
