@@ -48,163 +48,194 @@ def p_4():
 
     return 0
 
-def p_5(call,repeats):
+def p_5():
     """
-    Echo the string call to the console repeats number of time
-    Each echo should be on a separate line
-    :param call:
-    :param repeats:
-    :return:
+    Template - Create a list of words form a string consisting of words separated by spaces
+    Output
+    ['Bring', 'me', 'a', 'shrubbery']
     """
-    # for dummy_cnt in range(0,repeats):
-    #     print(call)
-    answer = call + ("\n" + call) * (repeats -1)
-    print(answer)
-    answer = "? " * (repeats)
-    print(answer)
+    quote = "Bring me a shrubbery"
+    words = quote.split(" ")
+    print (words)
     return 0
 
-def is_substring(example_string, test_string):
+def word_count(text, word):
     """
-    Function that returns True if test_string
-    is a substring of example_string and False otherwise
-    # enter one line of code for substring test here
+    counts number of time word is in text
     """
-    # return example_string.find(test_string) != -1
-    return test_string in example_string
+    words = text.split(" ").count(word)
+    return words
+
+
 def p_6():
     """
-    calls test function
+    Given a string text consist of words separate by spaces and a string word
+    (with no spaces), return the number of times that word appears in the text
     Output
-
-    True
-    True
-    False
-    False
-    True
-    :return:
+    2
+    1
+    1
     """
-    example_string = "It's just a flesh wound."
+    # Tests
+    print(word_count("this pigdog is a fine pigdog", "pigdog"))
+    print(word_count("this pigdog is not a dog", "dog"))
+    print(word_count("this pigdog is not a pig", "pigdog"))
+    print(word_count("this this this pigdog is not a pig", "this"))
 
-    print(is_substring(example_string, "just"))
-    print(is_substring(example_string, "flesh wound"))
-    print(is_substring(example_string, "piddog"))
-    print(is_substring(example_string, "it's"))
-    print(is_substring(example_string, "It's"))
     return 0
-
-def make_nametag(first_name, topic):
-    """
-    Given two strings first_name and topic,
-    return a string of the form ""Hi! My name
-    is XXX. This lecture covers YYY." where
-    XXX and YYY are first_name and topic.
-    """
-    # return  "Hi! My name is {}. This lecture covers {}.".format(first_name,topic)
-    return "Hi! My name is {0}. This lecture covers {1}.".format(first_name, topic)
-
 
 def p_7():
     """
-    # Output
-    # Hi! My name is Scott. This lecture covers Python.
-    # Hi! My name is Joe. This lecture covers games.
-    # Hi! My name is John. This lecture covers programming tips.
+    Template - Analyze an example of a list reference situation
+    Output
+    [2, 3, 5, 7, 11, 13]
+    [2, 3, 5, 7, 11, 13]
+    [0, 3, 5, 7, 11, 13]
+    [0, 3, 5, 7, 11, 13]
     """
-    print(make_nametag("Scott", "Python"))
-    print(make_nametag("Joe", "games"))
-    print(make_nametag("John", "programming tips"))
+
+    # Initial list
+    list1 = [2, 3, 5, 7, 11, 13]
+
+    # Another reference to list1
+    list2 = list1
+
+    # Print out both lists
+    print(list1)
+    print(list2)
+
+    # Update the first item in second list to zero
+    list2[0] = 0
+
+    # Print out both lists
+    print(list1)
+    print(list2)
+
+    # Explain what happens to list1 in a comment
+    print("list1 and list2 are the same object in memory, so change to list2 affects list1")
     return 0
 
-
-def make_int(int_string):
-    """
-    Given the string int_string, return the associated integer if all
-    digits are decimal digits.  Other return -1.
-    """
-    # is_int = True
-    # for chrs in int_string:
-    #     if not chrs.isdigit():
-    #         return -1
-    # if int(int_string)>0:
-    #     return int(int_string)
-    if int_string.isdigit():
-        return int(int_string)
-    return -1
 def p_8():
     """
-    Tests
-    123
-    123
-    -1
-    -1
+    Template - Analyze another example of a list reference situation
+    Output
+    [2, 3, 5, 7, 11, 13]
+    [2, 3, 5, 7, 11, 13]
+    [2, 3, 5, 7, 11, 13]
+    [0, 3, 5, 7, 11, 13]
     """
-    print(make_int("123"))
-    print(make_int("00123"))
-    print(make_int("1.23"))
-    print(make_int("-123"))
+
+    # Initial list
+    list1 = [2, 3, 5, 7, 11, 13]
+
+    # Make a copy of list1
+    list2 = list(list1)
+
+    # Print out both lists
+    print(list1)
+    print(list2)
+
+    # Update the first item in second list to zero
+    list2[0] = 0
+
+    # Print out both lists
+    print(list1)
+    print(list2)
+
+    # Explain what happens to list1 in a comment
+    print("command list(list1) returns a new list")
+
     return 0
 
-
-def name_swap(name_string):
+def list_max(numbers):
     """
-    Given the string name string of the form "first last", return
-    the string "Last First" where both names are now capitalized
+    return the largest value in the list
     """
-    # words = name_string.split(" ")
-    # words[0] = words[0][0].upper()+words[0][1:]
-    # words[1] = words[1][0].upper()+words[1][1:]
-    # return words[1]+" "+words[0]
-    (first, last) = name_string.split(" ")
-    return last.capitalize() + " " + first.capitalize()
+    # numbers.sort()
+    # m_num = numbers[-1]
+    # m_num = max(numbers)
+    m_num = numbers[0]
+    for n in numbers:
+        if n>m_num:
+            m_num = n
+    return m_num
 
 def p_9():
     """
-    Tests Output
-    Warren Joe
-    Rixner Scott
-    Greiner John
+    Template - Take a list of integers and concatenate their digits
+    Output:
+    4
+    404
+    123456789
+    327961000
     """
-    print(name_swap("joe warren"))
-    print(name_swap("scott rixner"))
-    print(name_swap("john greiner"))
+
+    # Tests
+    print(concatenate_ints([4]))
+    print(concatenate_ints([4, 0, 4]))
+    print(concatenate_ints([123, 456, 789]))
+    print(concatenate_ints([32, 796, 1000]))
     return 0
-def count_vowels(val):
-    sum = val.count("a")
-    sum += val.count("e")
-    sum += val.count("i")
-    sum += val.count("o")
-    sum += val.count("u")
-    return sum
-def demystify(l1_string):
-    l1_string = l1_string.replace("l","a")
-    l1_string = l1_string.replace("1","b")
-    return l1_string
-    
+
+def concatenate_ints(int_list):
+    """
+    Given a list of integers int_list, return the integer formed by
+    concatenating their decimal digits together
+    """
+    cat = ""
+    for n in int_list:
+        cat = cat + str(n)
+    return int(cat)
 
 def quiz():
-    print("1:")
-    print("Grail"[-4])
-    print("")
-    print("2:")
-    val = "Castle Anthrax"
-    print(val[7:15])
-    print(val[7:])
-    print(val[8:])
-    print(val[8:15])
-    print("")
-    print("4:")
-    print("")
-    print("6:")
-    print(count_vowels("aaassseefffgggiiijjjoOOkkkuuuu"))
-    print(count_vowels("aovvouOucvicIIOveeOIclOeuvvauouuvciOIsle"))
-    print("")
-    print("7:")
-    print(demystify("lll111l1l1l1111lll"))
-    print(demystify("111l1l11l11lll1lll1lll11111ll11l1ll1l111"))
+    print("***** 1:")
+    print(list(range(0,5,1)))
+    print(range(6))
+    print(list(range(6)))
+    print(list(range(0,6)))
 
+    print("***** 2:")
+    ml = [1,2,3,4,5,6,7,8]
+    print(ml[0:len(ml)//2] , ml[len(ml)//2:len(ml)])
+    print(ml[:len(ml)//2], ml[len(ml)//2:])
+
+    print("***** 3:")
+    n, m  = 3, 5
+    init_list = list(range(1, n))
+    final_list = init_list * m
+    print(final_list)
+
+    print("***** 4:")
+    n = 5
+    test_string = "xxx" + " " * n + "xxx"
+    split_list = test_string.split(" ")
+    print(split_list)
+
+    print("***** 5:")
+    l1 = list(range(1,10))
+    l2 = [] + l1
+    l2[0] = 99
+    print (l1, l2)
+    l1 = list(range(1,10))
+    l2 = l1[:]
+    l2[0] = 99
+    print (l1, l2)
+
+    print("***** 7:")
+    print(strange_sum([1, 2, 3, 4, 5, 1, 2, 3, 4, 5]))
+    print(strange_sum(list(range(123)) + list(range(77))))
     return 0
 
+def strange_sum(numbers):
+    """
+    returns sum of numbers not divisible by 3
+    """
+    total = 0
+    for n in numbers:
+        if n%3 != 0:
+            total += n
+
+    return total
 
 def main():
     """
@@ -214,15 +245,14 @@ def main():
     # p_1()
     # p_2()
     # p_3()
-    p_4()
-    # p_5("Hello", 5)
-    # p_5("Goodbye", 3)
+    # p_4()
+    # p_5()
     # p_6()
     # p_7()
     # p_8()
     # p_9()
     # p_10()
-    # quiz()
+    quiz()
 
 
 if __name__ == "__main__":
