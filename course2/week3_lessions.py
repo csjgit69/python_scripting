@@ -94,113 +94,100 @@ def tuple_ex1():
     lst3[2] = 7
     print(lst2, tup2, lst3)
     return 0
+def ref_ex1():
+    """
+    List Objects and References.
+    """
 
-def list_ex3():
-    """
-    Splitting and Joining Strings
-    """
-    print("Splitting")
-    print("=========")
-    # From "A Girl I knew" by J. D. Salinger
-    sentence = "She wasn't doing a thing that I could see, except standing there leaning on the balcony railing, holding the universe together."
-    print(sentence)
-    # String split
-    words = sentence.split()
-    print(words)
-    # Explicit separator
-    words2 = sentence.split(" ")
-    print(words2)
-    phrases = sentence.split(",")
-    print(phrases)
-    parts = sentence.split("the")
-    print(parts)
+    print("Look Alikes")
+    print("===========")
+
+    lst1 = [7, 3, 2]
+    lst2 = [7, 3, 2]
+    print(lst1, lst2)
+
+    lst1[1] = -8
+    print(lst1, lst2)
+
     print("")
-    print("Joining")
+    print("Aliases")
     print("=======")
-    items = ["flowers", "puddle", "mouse pad", "outlet", "bread", "house"]
-    print(items)
-    # Join together
-    print("".join(items))
-    print(" ".join(items))
-    print(",".join(items))
-    print(", ".join(items))
+
+    lst3 = [1, 5, 9]
+    lst4 = lst3
+    print(lst3, lst4)
+
+    lst3[1] = 17
+    print(lst3, lst4)
+
+    print("")
+    print("Copies")
+    print("======")
+
+    lst5 = [8, 9, 4]
+    # This makes a shallow copy
+    lst6 = list(lst5)
+    print(lst5, lst6)
+
+    lst5[1] = -2
+    print(lst5, lst6)
+
+    print("")
+    print("Function Arguments")
+    print("==================")
+
+
+    lst7 = [1, 2, 3]
+    print(lst7)
+    mutate_list(lst7)
+    print(lst7)
     return 0
 
-def list_ex4():
+def mutate_list(alist):
     """
-    Searching lists.
+    Add an element to the input.
     """
-    toys = ["blocks", "slinky", "fidget spinner", "cards", "doll house", "legos", "blocks", "teddy bear"]
-    # Finding items in a list
-    print(toys.index("legos"))
-    print(toys.index("blocks"))
-    # print(toys.rindex("video game")) # doesn't work on lists like it does on strings
-    # print(toys.index("video game"))
-    print("")
-    # Checking if items are in a list
-    print("legos" in toys)
-    print("blocks" in toys)
-    print("video game" in toys)
-    print("teddy bear" not in toys)
-    print("dice" not in toys)
-    print("")
-    # Counting items in list
-    print(toys.count("slinky"))
-    print(toys.count("blocks"))
-    return 0
+    alist.append(42)
 
-def print_items(alist):
+def ref_ex2():
     """
-    Iterate over alist and print all items.
+    Some simple examples of reference issues for lists
     """
-    for item in alist:
-        print(item)
 
-def print_items_bad(alist):
-    """
-    Iterate over alist and print all items.
-    List indexing in this way is error prone and unnecessary.
-    """
-    length = len(alist)
-    for index in range(length):
-        print(alist[index])
+    print ("Part 1 - references to two distinct objects")
+    iipp1_instructors = ["Joe", "Scott", "John", "Stephen"]
+    iipp2_instructors = ["Joe", "Scott", "John", "Stephen"]
+    print(iipp1_instructors)
+    print(iipp2_instructors)
 
-def count_items(alist):
-    """
-    Count number of items in alist.
-    """
-    count = 0
-    for item in alist:
-        count = count + 1
-    return count
+    print ("Mutate one of the two objects")
+    iipp2_instructors.pop()
+    print(iipp1_instructors)
+    print(iipp2_instructors)
+    print()
 
-def count_odd_items(numlist):
-    """
-    Count number of odd numbers in numlist.
-    """
-    count = 0
-    for num in numlist:
-        if num % 2 == 1:
-            count += 1
-    return count
+    print ("Part 2 - two references to the same object")
+    iipp1_instructors = ["Joe", "Scott", "John", "Stephen"]
+    iipp2_instructors = iipp1_instructors
+    print(iipp1_instructors)
+    print(iipp2_instructors)
 
-def list_ex5():
-    """
-    Iterating over lists.
-    """
-    numbers = list(range(5, 82, 3))
-    strings = ["python", "is", "fun", "!"]
-    print("Iterate over lists and print items")
-    print("")
-    print_items(numbers)
-    print_items(strings)
-    print_items_bad(numbers)
-    print("")
-    print("Iterate over lists and process them")
-    print("")
-    print(count_items(numbers))
-    print(count_items(strings))
-    print(count_odd_items(numbers))
+    print ("Mutate the object")
+    iipp2_instructors.pop()
+    print(iipp1_instructors)
+    print(iipp2_instructors)
+    print()
+
+    print ("Part 3 - two references to an object and a copy of the object")
+    iipp1_instructors = ["Joe", "Scott", "John", "Stephen"]
+    iipp2_instructors = list(iipp1_instructors)
+    print(iipp1_instructors)
+    print(iipp2_instructors)
+
+    print ("Mutate the one of the objects")
+    iipp2_instructors.pop()
+    print(iipp1_instructors)
+    print(iipp2_instructors)
     return 0
 
 def main():
@@ -209,10 +196,9 @@ def main():
     :return:
     """
     # list_ex1()
-    tuple_ex1()
-    # list_ex3()
-    # list_ex4()
-    # list_ex5()
+    # tuple_ex1()
+    # ref_ex1()
+    ref_ex2()
 
 
 if __name__ == "__main__":
