@@ -94,6 +94,7 @@ def tuple_ex1():
     lst3[2] = 7
     print(lst2, tup2, lst3)
     return 0
+
 def ref_ex1():
     """
     List Objects and References.
