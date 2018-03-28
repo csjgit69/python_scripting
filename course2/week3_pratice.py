@@ -3,6 +3,7 @@ Course2 week one pratice
 """
 
 import datetime
+import random
 
 def p_1():
     """
@@ -35,215 +36,228 @@ def p_2():
 
 def p_3():
     """
-    Template - Create a list formed by excluding the first and last items of example_list
+    Template - Append an item to a list
     Output
-    [3, 5, 7, 11]
+    [2, 3, 5, 7, 11, 13]
+    [2, 3, 5, 7, 11, 13, 0]
     """
-    example_list = [2, 3, 5, 7, 11, 13]
-    middle_list =example_list[1:-1]
-    print(middle_list)
 
+    example_list = [2, 3, 5, 7, 11, 13]
+    print(example_list)
+    example_list.append(0)
+    print(example_list)
     return 0
 
 def p_4():
     """
-    Template - Create a list formed by 8 copies of True and 8 copies of False
+    Template - Extend a list with another list
     Output
-    [True, True, True, True, True, True, True, True, False, False, False, False, False, False, False, False]
+    [2, 3, 5, 7, 11, 13]
+    [2, 3, 5, 7, 11, 13, 0, 0, 0]
     """
-    truefalse_list =[True]*8+[False]*8
-    print(truefalse_list)
 
+    example_list = [2, 3, 5, 7, 11, 13]
+    print(example_list)
+    example_list.extend([0,0,0])
+    print(example_list)
     return 0
 
 def p_5():
     """
-    Template - Create a list of words form a string consisting of words separated by spaces
+    Template - Concatenate one list onto another
     Output
-    ['Bring', 'me', 'a', 'shrubbery']
+    [2, 3, 5, 7, 11, 13]
+    [2, 3, 5, 7, 11, 13]
+    [2, 3, 5, 7, 11, 13, 0, 0, 0]
     """
-    quote = "Bring me a shrubbery"
-    words = quote.split(" ")
-    print (words)
+    example_list = [2, 3, 5, 7, 11, 13]
+    print(example_list)
+    new_list = list(example_list) + [0,0,0]
+    print(example_list)
+    print(new_list)
     return 0
 
-def word_count(text, word):
+def mut_list(in_list, item):
     """
-    counts number of time word is in text
+    add item to in_list
     """
-    words = text.split(" ").count(word)
-    return words
-
+    in_list.append(item)
+    return 0
 
 def p_6():
     """
-    Given a string text consist of words separate by spaces and a string word
-    (with no spaces), return the number of times that word appears in the text
-    Output
-    2
-    1
-    1
+    Template - Append several item to a list
+    # Output
+    #[2, 3, 5, 7, 11, 13]
+    #[2, 3, 5, 7, 11, 13, 0, 0, 0]
     """
-    # Tests
-    print(word_count("this pigdog is a fine pigdog", "pigdog"))
-    print(word_count("this pigdog is not a dog", "dog"))
-    print(word_count("this pigdog is not a pig", "pigdog"))
-    print(word_count("this this this pigdog is not a pig", "this"))
+    example_list = [2, 3, 5, 7, 11, 13]
+    print(example_list)
+    for n in range(3):
+        mut_list(example_list, 0)
+    print(example_list)
 
+    for number in [0, 0, 0]:
+        example_list.append(number)
+    print(example_list)
     return 0
 
 def p_7():
     """
-    Template - Analyze an example of a list reference situation
+    Template - Convert a list to a tuple
     Output
     [2, 3, 5, 7, 11, 13]
-    [2, 3, 5, 7, 11, 13]
-    [0, 3, 5, 7, 11, 13]
-    [0, 3, 5, 7, 11, 13]
+    (2, 3, 5, 7, 11, 13)
     """
-
-    # Initial list
-    list1 = [2, 3, 5, 7, 11, 13]
-
-    # Another reference to list1
-    list2 = list1
-
-    # Print out both lists
-    print(list1)
-    print(list2)
-
-    # Update the first item in second list to zero
-    list2[0] = 0
-
-    # Print out both lists
-    print(list1)
-    print(list2)
-
-    # Explain what happens to list1 in a comment
-    print("list1 and list2 are the same object in memory, so change to list2 affects list1")
+    example_list = [2, 3, 5, 7, 11, 13]
+    print(example_list)
+    example_tuple = tuple(example_list)
+    print(example_tuple)
     return 0
 
 def p_8():
     """
-    Template - Analyze another example of a list reference situation
-    Output
-    [2, 3, 5, 7, 11, 13]
-    [2, 3, 5, 7, 11, 13]
-    [2, 3, 5, 7, 11, 13]
-    [0, 3, 5, 7, 11, 13]
+    Template - Shuffle the items in a list
+    # Output - note that order of second list may vary due to randomness
+    #[2, 3, 5, 7, 11, 13]
+    #[11, 2, 7, 5, 13, 3]
     """
-
-    # Initial list
-    list1 = [2, 3, 5, 7, 11, 13]
-
-    # Make a copy of list1
-    list2 = list(list1)
-
-    # Print out both lists
-    print(list1)
-    print(list2)
-
-    # Update the first item in second list to zero
-    list2[0] = 0
-
-    # Print out both lists
-    print(list1)
-    print(list2)
-
-    # Explain what happens to list1 in a comment
-    print("command list(list1) returns a new list")
-
+    example_list = [2, 3, 5, 7, 11, 13]
+    print(example_list)
+    random.shuffle(example_list)
+    print(example_list)
     return 0
 
-def list_max(numbers):
+def flatten(nested_list):
     """
-    return the largest value in the list
+    Given a list whose items are list,
+    return the list formed by joining all of these lists
     """
-    # numbers.sort()
-    # m_num = numbers[-1]
-    # m_num = max(numbers)
-    m_num = numbers[0]
-    for n in numbers:
-        if n>m_num:
-            m_num = n
-    return m_num
+    out_list = []
+    print("-->",nested_list)
+    # for n in nested_list:
+    #     for m in n:
+    #         out_list.append(m)
+    for n in nested_list:
+        out_list.extend(n)
+    return out_list
 
 def p_9():
     """
-    Template - Take a list of integers and concatenate their digits
-    Output:
-    4
-    404
-    123456789
-    327961000
+    Template - Flatten a nested list
+    Output
+    []
+    []
+    [1, 2, 3]
+    ['cat', 'dog', 'pig', 'cow']
+    [9, 8, 7, 6, 5, 4, 3, 2, 1]
     """
-
-    # Tests
-    print(concatenate_ints([4]))
-    print(concatenate_ints([4, 0, 4]))
-    print(concatenate_ints([123, 456, 789]))
-    print(concatenate_ints([32, 796, 1000]))
+    # Test code
+    print("1:",flatten([]))
+    print("")
+    print("2:",flatten([[]]))
+    print("")
+    print("3:",flatten([[1, 2, 3]]))
+    print("")
+    print("4:",flatten([["cat", "dog"], ["pig", "cow"]]))
+    print("")
+    print("5:",flatten([[9, 8, 7], [6, 5], [4, 3, 2], [1]]))
+    print("")
     return 0
 
-def concatenate_ints(int_list):
+def remove_duplicates(items):
     """
-    Given a list of integers int_list, return the integer formed by
-    concatenating their decimal digits together
+    Given a list, return a list with duplicate items removed
+    and the remaining items in the same order
     """
-    cat = ""
-    for n in int_list:
-        cat = cat + str(n)
-    return int(cat)
+    # myList = list(items)
+    # cleanlist = []
+    # [cleanlist.append(x) for x in myList if x not in cleanlist]
+
+    cleanlist = []
+    for item in items:
+        if item not in cleanlist:
+            cleanlist.append(item)
+    return cleanlist
+
+    return cleanlist
+
+def p_10():
+    """
+    Template - Remove duplicates from a list while preserving the order of items
+    Output
+    []
+    [1, 2, 3, 4]
+    [1, 2, 3, 4, 5, 6]
+    ['cat', 'dog', 'pig', 'cow', 'pug']
+    """
+    myList = [1, 2, 3, 1, 2, 5, 6, 7, 8]
+    cleanlist = []
+    [cleanlist.append(x) for x in myList if x not in cleanlist]
+    # Test code
+    print(remove_duplicates([]))
+    print(remove_duplicates([1, 2, 3, 4]))
+    print(remove_duplicates([1, 2, 2, 3, 3, 3, 4, 5, 6, 6]))
+    print(remove_duplicates(["cat", "dog", "cat", "pig", "cow", "cat", "pig", "pug"]))
+    return 0
 
 def quiz():
     print("***** 1:")
-    print(list(range(0,5,1)))
-    print(range(6))
-    print(list(range(6)))
-    print(list(range(0,6)))
+    my_list = [1,3,5,7,9]
+    print(my_list[3:])
+    print(my_list[2:])
+    print(my_list[2:5])
+    print(my_list[3:5])
 
     print("***** 2:")
-    ml = [1,2,3,4,5,6,7,8]
-    print(ml[0:len(ml)//2] , ml[len(ml)//2:len(ml)])
-    print(ml[:len(ml)//2], ml[len(ml)//2:])
+    my_tup = (1,)
+    print(len(my_tup), type(my_tup))
+    # my_tup = (1)
+    # print(len(my_tup))
+    my_tup = tuple([1])
+    print(len(my_tup), type(my_tup))
 
     print("***** 3:")
-    n, m  = 3, 5
-    init_list = list(range(1, n))
-    final_list = init_list * m
-    print(final_list)
-
+    # instructors = ("Scott", "Joe", "John", "Stephen")
+    # instructors[2 : 4] = []
+    # print(instructors)
     print("***** 4:")
-    n = 5
-    test_string = "xxx" + " " * n + "xxx"
-    split_list = test_string.split(" ")
-    print(split_list)
 
     print("***** 5:")
-    l1 = list(range(1,10))
-    l2 = [] + l1
-    l2[0] = 99
-    print (l1, l2)
-    l1 = list(range(1,10))
-    l2 = l1[:]
-    l2[0] = 99
-    print (l1, l2)
+    my_list = [1, 3, 5, 7, 9]
+    my_list.reverse()
+    print(my_list.reverse())
+
+    print("***** 6:")
+    fib = [0,1]
+    for n in range(20):
+        m = fib[-1]+fib[-2]
+        fib.append(m)
+    print("fib: ",fib[-1])
 
     print("***** 7:")
-    print(strange_sum([1, 2, 3, 4, 5, 1, 2, 3, 4, 5]))
-    print(strange_sum(list(range(123)) + list(range(77))))
+    print(len(compute_primes(200)))
+    print(len(compute_primes(2000)))
+
     return 0
 
-def strange_sum(numbers):
+"""
+Implement the Sieve of Eratosthenes
+https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+"""
+def compute_primes(bound):
     """
-    returns sum of numbers not divisible by 3
+    Return a list of the prime numbers in range(2, bound)
     """
-    total = 0
-    for n in numbers:
-        if n%3 != 0:
-            total += n
 
-    return total
+    answer = list(range(2, bound))
+    for divisor in range(2, bound):
+        kill = divisor
+        for cnt in range(divisor, bound):
+            kill += divisor
+            if kill in answer:
+                answer.remove(kill)
+    return answer
 
 def main():
     """
@@ -251,7 +265,7 @@ def main():
     :return:
     """
     # p_1()
-    p_2()
+    # p_2()
     # p_3()
     # p_4()
     # p_5()
@@ -260,7 +274,7 @@ def main():
     # p_8()
     # p_9()
     # p_10()
-    # quiz()
+    quiz()
 
 
 if __name__ == "__main__":

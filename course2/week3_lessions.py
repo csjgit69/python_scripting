@@ -1,5 +1,5 @@
 """
-Course3 week two lessions and examples
+Course2 week three lessions and examples
 """
 
 def list_ex1():
