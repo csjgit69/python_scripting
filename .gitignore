@@ -11,6 +11,7 @@ code3/
 RemoteSystemsTempFiles/
 .project
 .pydevproject
+.pytest_*
 
 # Compiled source #
 ###################
