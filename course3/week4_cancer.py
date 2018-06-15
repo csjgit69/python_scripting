@@ -1,31 +1,14 @@
 """
-Week 3 practice project template for Python Data Analysis
-Reading and writing CSV files using lists
-"""
-#########################################################
-# Part 1 - Week 3
-
-import csv
-import logging
-
-# # global logger for turning debug on/off
-# LOG_FORMAT = "%(levelname)s %(asctime)s - %(message)s"
-# logging.basicConfig( # filename = "test_log.log",
-#                     level = logging.DEBUG,
-#                     format = LOG_FORMAT,
-#                     filemode='w')                       # overwrite log file
-# logger = logging.getLogger()
-
-
-"""
 Week 4 practice project solution for Python Data Analysis
-Processing 2D tables 
+Processing 2D tables
 """
 import csv
 
 
+
 #########################################################
 # Part 1 - Week 3
+
 
 
 def print_table(table):
@@ -42,22 +25,27 @@ def read_csv_file(file_name):
     Input: String corresponding to comma-separated  CSV file
     Output: Lists of lists consisting of the fields in the CSV file
     """
-    with open(file_name, newline='') as csv_file:  # don't need to explicitly close the file now
+
+    with open(file_name, newline='') as csv_file:       # don't need to explicitly close the file now
         csv_table = []
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
             csv_table.append(row)
     return csv_table
 
+
+
 def write_csv_file(csv_table, file_name):
     """
     Input: Nested list csv_table and a string file_name
     Action: Write fields in csv_table into a comma-separated CSV file with the name file_name
     """
+
     with open(file_name, 'w', newline='') as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         for row in csv_table:
             csv_writer.writerow(row)
+
 
 
 #########################################################
@@ -84,21 +72,10 @@ def sort_by_column(my_table, col_idx):
     pass
 
 
+
 def test_part2_code():
     """
     Run examples that test the functions for part 2
-    # Output from test_part2_code()
-    ##['1', '2', '3', '4']
-    ##['5', '6', '7', '8']
-    ##['-2', '-3', '-4', '-5']
-    ##
-    ##['1', '3']
-    ##['5', '7']
-    ##['-2', '-4']
-    ##
-    ##['5', '6', '7', '8']
-    ##['1', '2', '3', '4']
-    ##['-2', '-3', '-4', '-5']
     """
 
     # Load a simple example table
@@ -126,14 +103,18 @@ def test_part2_code():
     trimmed_risk_solution = read_csv_file("cancer_risk_trimmed_solution.csv")
 
 
-def main():
-    """
-    Main function, it all starts here
-    :return:
-    """
-    print("fuck me")
-    test_part2_code()
 
+test_part2_code()
 
-if __name__ == "__main__":
-    main()
+#Output from test_part2_code()
+##['1', '2', '3', '4']
+##['5', '6', '7', '8']
+##['-2', '-3', '-4', '-5']
+##
+##['1', '3']
+##['5', '7']
+##['-2', '-4']
+##
+##['5', '6', '7', '8']
+##['1', '2', '3', '4']
+##['-2', '-3', '-4', '-5']
