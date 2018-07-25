@@ -40,10 +40,11 @@ def draw_USA_map(map_name):
     with open(map_name, "rb") as map_file:
         # pict will be a numpy array
         pict = plt.imread(map_file)
+        # print("type of pict is:", type(pict))
 
     #  Get dimensions of USA map image, .shape is a numpy method on the array
     ypixels, xpixels, bands = pict.shape
-    print(ypixels, xpixels, bands)
+    print("Y pixels:", ypixels, xpixels, bands)
 
     # Optional code to resize plot as fixed size figure -
     DPI = 80.0                  # adjust this constant to resize your plot
