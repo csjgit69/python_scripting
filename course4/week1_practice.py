@@ -7,7 +7,7 @@ from typing import Any, Union
 import pygal
 import matplotlib.pyplot as plt
 from numpy.core.multiarray import ndarray
-
+import webbrowser
 
 def ex_pygal():
     """
@@ -68,8 +68,9 @@ def main():
     USA_SVG_SIZE = [555, 352]
 
     # ex_pygal()
-    draw_USA_map("USA_Counties_555x352.png")
+    # draw_USA_map("USA_Counties_555x352.png")
     # draw_USA_map("USA_Counties_1000x634.png")
+    webbrowser.open_new("http://yahoo.com")
 
 if __name__ == '__main__':
     main()

@@ -12,6 +12,7 @@ RemoteSystemsTempFiles/
 .project
 .pydevproject
 .pytest_*
+__pycache*
 
 # Compiled source #
 ###################
