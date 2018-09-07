@@ -63,6 +63,110 @@ def draw_USA_map(map_name):
 
     pass
 
+def c_test_alg(test_val):
+    odd_list = [0,1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41]
+    start = -1 * (test_val**2)
+    print("Start: ", start, " 0^0", 0**0)
+    last_val = start
+    ans  = []
+    ans.append(last_val)
+    for cnt in range(1, test_val*3):
+        last_val = (last_val + (cnt*2))-1 #odd_list[cnt]
+        print("cnt: ", cnt, "val: ", last_val)
+        ans.append(last_val)
+    print(ans)
+
+def c_lession():
+    x = 2
+    y = x * 3
+    z = y/2
+    x = (2+z)%2
+    print("x: ",x," y: ",y," z: ",z )
+    x = 5 * 2
+    y = (x + 1) % 3
+    print(y - x)
+
+def c_lession_g (x, y):
+    x = x + y
+    z = 2 * x - y
+    print(z)
+
+def f(x, y):
+    if (x + 2 < y):
+        x = x + 3
+        return y * x
+    else:
+        return x + y + 2
+
+def f_while(x, y):
+    while(x < y):
+        print("val:", y - x)
+        x = x + 1
+        y = y - 1
+
+def f_loops1 (n):
+    ans = 0
+    for i in range(n): # (int i = 1; i < n; i++):
+        if (i < int(n/2)):
+            ans = ans - i
+        else:
+            ans = ans + i
+    return ans
+
+def g_loops (x, n):
+    for i in range(n): #(int i = 0; i < n; i++):
+        if (i % 2 == 0):
+            x *= i + 1
+            continue
+        x = x - 1
+        if (x == 0):
+            break
+    return x
+
+def c_quiz ():
+    a = 3
+    b = 6
+    while (a <= b):
+        if (a % 2 == 1):
+            print("a is ", a)
+        else:
+            print("b is ", b)
+            i = 0
+            while (i < (b - a)):
+                # for (int i = 0; i < b - a ; i++)
+                print("a * i + b = ", a * i + b)
+                i += 1
+        a += 1
+        b -= 1
+    return
+
+
+def c_anotherFunction(a, b):
+    answer = 42
+    x = 0
+    print("In anotherFunction(",a,",",b,")")
+    while (b > a):
+        print("a is ",a,", b is ",b)
+        answer = answer + (b - a)
+        b -= x
+        a += x / 2
+        x += 1
+    return answer
+
+def c_someFunction(x, y):
+  a = x + y
+  if (x < y):
+    i = 0
+    while (i < x):
+    #for (int i = 0; i < x; i++) {
+        print("In the loop with i = ",i,", a = ",a)
+        a = a + x
+        i += 1
+  else:
+    y = anotherFunction(y,a+4)
+  return a * y
+
+
 def main():
     # Houston location
     USA_SVG_SIZE = [555, 352]
@@ -70,7 +174,33 @@ def main():
     # ex_pygal()
     # draw_USA_map("USA_Counties_555x352.png")
     # draw_USA_map("USA_Counties_1000x634.png")
-    webbrowser.open_new("http://yahoo.com")
+    # webbrowser.open_new("http://yahoo.com")
+    # c_test_alg(5)
+    # c_lession()
+
+    # c_lession_g(3, -10)
+    # x = -1
+    # y = 3
+    # x = x + y
+    # print(x - y)
+    # print((-1 * -2) == (14 % 4))
+    # x = 6
+    # print((-3 < 5) and not (x % 3 == 0))
+    # print("function: ", f(5,7))
+    # print("c_while: ", f_while(-1, 4))
+    # print("c_loops1: ", f_loops1(7))
+    # print("g_loops1: ", g_loops(1,3))
+
+    c_quiz()
+
+    print()
+    print("***********")
+    print()
+
+    x = 2
+    a = c_someFunction(x,3)
+    print("a = ",a)
+    print("x = ",x)
 
 if __name__ == '__main__':
     main()

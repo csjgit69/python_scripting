@@ -44,6 +44,7 @@ def test_get_attributes(svg_file_name):
     print()
     print(county_attribute_list[1000])
 
+test_get_attributes("USA_Counties_2014.svg")
 
 # Code to compute the center of a county from its boundary (as a string)
 
@@ -135,7 +136,6 @@ def main():
     main body of script
     :return:
     """
-
     #test_get_attributes("USA_Counties_with_FIPS_and_names.svg")
 
     # Output from tests
