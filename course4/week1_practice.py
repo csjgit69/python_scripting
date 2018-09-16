@@ -190,8 +190,7 @@ def main():
     # print("c_while: ", f_while(-1, 4))
     # print("c_loops1: ", f_loops1(7))
     # print("g_loops1: ", g_loops(1,3))
-
-    c_quiz()
+    # c_quiz()
 
     print()
     print("***********")
